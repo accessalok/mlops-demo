@@ -64,7 +64,7 @@ if __name__ == "__main__":
             repo='.')
         mlflow.log_param("dataset_version", dataset_version)
 
-        print(f"Best Model Params={best_params}") 
+        print(f"Best Model Params={best_params}")
         print(f"accuracy={accuracy}")
         print(f"f1={f1}")
         print(f"dataset_version={dataset_version}")
