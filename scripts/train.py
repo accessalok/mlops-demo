@@ -7,6 +7,7 @@ import mlflow
 import mlflow.sklearn
 import dvc.api
 
+
 def load_data():
     """
     Load dataset from DVC storage.
@@ -16,6 +17,7 @@ def load_data():
     X = df.drop(columns=['quality'])
     y = (df['quality'] > 6).astype(int)  # Binary classification: quality > 6
     return X, y
+
 
 if __name__ == "__main__":
     print("Current working directory:", os.getcwd())
