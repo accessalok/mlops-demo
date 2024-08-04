@@ -24,16 +24,23 @@ if __name__ == "__main__":
     
     # Load the dataset
     X, y = load_data()
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
+        )
 
     # Define the model
     model = LogisticRegression(max_iter=200)
 
     # Define the parameter grid
-    param_grid = {'C': [0.1, 1.0, 10.0, 100.0], 'solver': ['liblinear', 'lbfgs']}
+    param_grid = {'C': [0.1, 1.0, 10.0, 100.0], 
+                  'solver': ['liblinear', 'lbfgs']
+                 }
 
     # Perform hyperparameter tuning with GridSearchCV
-    grid_search = GridSearchCV(model, param_grid, cv=5, scoring='accuracy')
+    grid_search = GridSearchCV(model, 
+                               param_grid,
+                               cv=5,
+                               scoring='accuracy')
     grid_search.fit(X_train, y_train)
 
     # Get the best model and parameters
@@ -53,7 +60,9 @@ if __name__ == "__main__":
         mlflow.sklearn.log_model(best_model, "model")
 
         # Log dataset version
-        dataset_version = dvc.api.get_url(path='data/winequality-red.csv', repo='.')
+        dataset_version = dvc.api.get_url(
+            path='data/winequality-red.csv',
+            repo='.')
         mlflow.log_param("dataset_version", dataset_version)
 
         print(f"Best model with params={best_params} ended with accuracy={accuracy}, f1={f1}, and dataset_version={dataset_version}")
