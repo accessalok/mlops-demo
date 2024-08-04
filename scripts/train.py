@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.linear_model import LogisticRegression
@@ -7,6 +8,9 @@ import mlflow.sklearn
 import dvc.api
 
 def load_data():
+    """
+    Load dataset from DVC storage.
+    """
     data_url = dvc.api.get_url(path='data/winequality-red.csv', repo='.')
     df = pd.read_csv(data_url)
     X = df.drop(columns=['quality'])
@@ -14,6 +18,8 @@ def load_data():
     return X, y
 
 if __name__ == "__main__":
+    print("Current working directory:", os.getcwd())
+    
     # Load the dataset
     X, y = load_data()
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
