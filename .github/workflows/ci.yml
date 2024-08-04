@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -30,4 +31,4 @@ jobs:
 
     - name: Test with unittest
       run: |
-        python -m unittest discover
+        python -m unittest discover -s tests

@@ -1,5 +1,5 @@
 import unittest
-from model import train_model
+from model.ml_model import train_model
 
 class TestModel(unittest.TestCase):
     def test_train_model(self):
