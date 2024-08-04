@@ -1,3 +1,5 @@
-numpy
+flask
+mlflow
 scikit-learn
-
+pandas
+dvc
