@@ -21,7 +21,7 @@ def load_data():
 
 if __name__ == "__main__":
     print("Current working directory:", os.getcwd())
-    
+
     # Load the dataset
     X, y = load_data()
     X_train, X_test, y_train, y_test = train_test_split(
@@ -32,12 +32,11 @@ if __name__ == "__main__":
     model = LogisticRegression(max_iter=200)
 
     # Define the parameter grid
-    param_grid = {'C': [0.1, 1.0, 10.0, 100.0], 
-                  'solver': ['liblinear', 'lbfgs']
-                 }
+    param_grid = {'C': [0.1, 1.0, 10.0, 100.0],
+                  'solver': ['liblinear', 'lbfgs']}
 
     # Perform hyperparameter tuning with GridSearchCV
-    grid_search = GridSearchCV(model, 
+    grid_search = GridSearchCV(model,
                                param_grid,
                                cv=5,
                                scoring='accuracy')
@@ -65,4 +64,6 @@ if __name__ == "__main__":
             repo='.')
         mlflow.log_param("dataset_version", dataset_version)
 
-        print(f"Best model with params={best_params} ended with accuracy={accuracy}, f1={f1}, and dataset_version={dataset_version}")
+        print(f"Best model with params={best_params}
+            ended with accuracy={accuracy}, f1={f1},
+            and dataset_version={dataset_version}")
