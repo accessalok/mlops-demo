@@ -9,7 +9,7 @@ import dvc.api
 import os
 
 # Import the functions from the script
-from scripts.train import load_data, train_model, evaluate_model
+from scripts.train import load_data
 
 class TestModel(unittest.TestCase):
 
