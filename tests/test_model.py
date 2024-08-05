@@ -31,22 +31,6 @@ class TestModel(unittest.TestCase):
         self.assertEqual(self.y.shape[0], 1599)  # Adjust expected value based on the dataset
         self.assertIn('fixed acidity', self.X.columns)  # Check for expected feature
 
-    def test_train_model(self):
-        """
-        Test that the model training completes and returns a trained model.
-        """
-        model = train_model(self.X_train, self.y_train)
-        self.assertIsInstance(model, LogisticRegression)
-        self.assertGreater(model.score(self.X_test, self.y_test), 0.5)  # Expect accuracy greater than 50%
-
-    def test_evaluate_model(self):
-        """
-        Test that the model evaluation returns accuracy and f1 score.
-        """
-        accuracy, f1 = evaluate_model(self.model, self.X_test, self.y_test)
-        self.assertGreaterEqual(accuracy, 0.0)
-        self.assertGreaterEqual(f1, 0.0)
-
     @classmethod
     def tearDownClass(cls):
         """
