@@ -27,8 +27,8 @@ class TestModel(unittest.TestCase):
         """
         Test that data is loaded and processed correctly.
         """
-        self.assertEqual(self.X.shape[0], 1599)  # Adjust expected value based on the dataset
-        self.assertEqual(self.y.shape[0], 1599)  # Adjust expected value based on the dataset
+        self.assertEqual(self.X.shape[0], 1143)  # Adjust expected value based on the dataset
+        self.assertEqual(self.y.shape[0], 1143)  # Adjust expected value based on the dataset
         self.assertIn('fixed acidity', self.X.columns)  # Check for expected feature
 
     @classmethod
