@@ -12,8 +12,8 @@ def load_data():
     """
     Load dataset from DVC storage.
     """
-    data_url = dvc.api.get_url(path='data/winequality-red.csv', repo='.')
-    df = pd.read_csv(data_url)
+    #data_url = dvc.api.get_url(path='data/winequality-red.csv', repo='.')
+    df = pd.read_csv('data/winequality-red.csv')
     X = df.drop(columns=['quality'])
     y = (df['quality'] > 6).astype(int)  # Binary classification: quality > 6
     return X, y
